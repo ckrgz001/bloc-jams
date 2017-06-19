@@ -58,7 +58,7 @@ var albumFaves = {
      return template;
  };
 
-// Below was #1 under var setCurrentAlbum function
+ // #1
  var albumTitle = document.getElementsByClassName('album-view-title')[0];
  var albumArtist = document.getElementsByClassName('album-view-artist')[0];
  var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
@@ -66,9 +66,7 @@ var albumFaves = {
  var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
 
-
- var setCurrentAlbum = function(albumImage) {
-
+  var setCurrentAlbum = function(album) {
       // #2
       albumTitle.firstChild.nodeValue = album.title;
       albumArtist.firstChild.nodeValue = album.artist;
@@ -77,33 +75,24 @@ var albumFaves = {
 
       // #3
       albumSongList.innerHTML = '';
-};
-      // #4
 
+      // #4
       for (var i = 0; i < album.songs.length; i++) {
           albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
-
- };
+      }
+  };
 
   window.onload = function() {
       setCurrentAlbum(albumPicasso);
 
-      albumImage.addEventListener('click', function(event)){ //translation: when click happens, click should activate the function via function(event)?
-          //the function(event) should be the setCurrentAlbum function. Why no forEach??
-         setCurrentAlbum(x)// whatever album cover was clicked. How do I say that? X for now.
+      var albums = [albumPicasso, albumMarconi, albumFaves];
+      var index = 1;
 
-        var albumsList = [albumPicasso, albumMarconi, albumFaves];
-         //To do
-         //1. Identify which album was clicked
-         //2. pass that album into setCurrentAlbum which will trigger createSongRow function
-         for (var i = 0; i < album.length; i++);//3. move to the next album in the list when clicked again. for loop to move through list length?
-         //Since there's a list of albums, and I need a way to access items on this list, use array?
-         //Since no actual array, should I make one for the albums as a variable? global variable? or play safe and use local? local! line 95 for albums variable for array
-
-
-      }
+      albumImage.addEventListener("click", function(event){
+          setCurrentAlbum(albums[index]);
+          index++;
+          if (index == albums.length) {
+              index = 0;
+          }
+      });
   };
-
-
-//document.getElementsByClassName('album-cover-art').addEventListener('click',function(album-cover-art));
-// ^ this is equal to "var albumImage", so change line 89 from "window" to albumImage
