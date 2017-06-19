@@ -30,6 +30,21 @@
      ]
  };
 
+//  My submission for: assignment-11-DOM-Scripting-Album-View
+var albumFaves = {
+    title: 'Favorite Rock',
+    artist: 'Various Artists',
+    label: 'Universal',
+    year: '1970s ++',
+    albumArtUrl: 'assets/images/album_covers/cat.jpg',
+    songs: [
+        { title: 'Thunderstruck', duration: '4:52' },
+        { title: 'Black Dog', duration: '4:55' },
+        { title: 'Paint It Black', duration: '3:22'},
+        { title: 'The Rover', duration: '5:39' },
+        { title: 'Trampled Underfoot', duration: '5:15'}
+    ]
+};
 
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
@@ -43,13 +58,16 @@
      return template;
  };
 
+ var albumTitle = document.getElementsByClassName('album-view-title')[0];
+ var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+ var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+ var albumImage = document.getElementsByClassName('album-cover-art')[0];
+ var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
+
+
  var setCurrentAlbum = function(album) {
       // #1
-      var albumTitle = document.getElementsByClassName('album-view-title')[0];
-      var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-      var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-      var albumImage = document.getElementsByClassName('album-cover-art')[0];
-      var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
       // #2
       albumTitle.firstChild.nodeValue = album.title;
