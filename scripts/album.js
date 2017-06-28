@@ -59,6 +59,7 @@ var albumFaves = {
  };
 
 // Below was #1 under var setCurrentAlbum function
+//Select elements that we want to populate with text dynamically
  var albumTitle = document.getElementsByClassName('album-view-title')[0];
  var albumArtist = document.getElementsByClassName('album-view-artist')[0];
  var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
@@ -67,19 +68,17 @@ var albumFaves = {
 
 
 
- var setCurrentAlbum = function(albumImage) {
-
-      // #2
+ var setCurrentAlbum = function(album) {
+     // Assign values to each part of the album (text, images)
       albumTitle.firstChild.nodeValue = album.title;
       albumArtist.firstChild.nodeValue = album.artist;
       albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
       albumImage.setAttribute('src', album.albumArtUrl);
 
-      // #3
+      // Clear contents of album song list container
       albumSongList.innerHTML = '';
 };
-      // #4
-
+      // Build list of songs from album Javascript object
       for (var i = 0; i < album.songs.length; i++) {
           albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
 
@@ -88,20 +87,17 @@ var albumFaves = {
   window.onload = function() {
       setCurrentAlbum(albumPicasso);
 
-      albumImage.addEventListener('click', function(event)){ //translation: when click happens, click should activate the function via function(event)?
-          //the function(event) should be the setCurrentAlbum function. Why no forEach??
-         setCurrentAlbum(x)// whatever album cover was clicked. How do I say that? X for now.
+      var albums = [albumPicasso, albumMarconi, albumFaves];
+      var index = 1;
+      albumImage.addEventListener('click', function(event){
+         setCurrentAlbum(albums[index]);
+        index++;
 
-        var albumsList = [albumPicasso, albumMarconi, albumFaves];
-         //To do
-         //1. Identify which album was clicked
-         //2. pass that album into setCurrentAlbum which will trigger createSongRow function
-         for (var i = 0; i < album.length; i++);//3. move to the next album in the list when clicked again. for loop to move through list length?
-         //Since there's a list of albums, and I need a way to access items on this list, use array?
-         //Since no actual array, should I make one for the albums as a variable? global variable? or play safe and use local? local! line 95 for albums variable for array
+        if (index == albums.length){
+            index = 0;
+        }
 
-
-      }
+    });
   };
 
 
