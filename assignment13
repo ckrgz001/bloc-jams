@@ -1,0 +1,22 @@
+var findParentByClassName = function(element, targetClass) {
+   if (element) {
+   //Below checks to see if the current element has a parent, if yes, continue with original function
+    if (element.parentElement != null) {
+   	var currentParent = element.parentElement;
+       	while (currentParent.className !== targetClass && currentParent.className !== null) {
+           	currentParent = currentParent.parentElement;
+       	}
+
+       	if (currentParent.className == targetClass) {
+       	return currentParent;
+       	} else {
+        //If currentParent is the right class, but the wrong classname?
+       	console.log("No parent found with that classname");        	}
+       	}
+    //If element is a solo element without a parent, below prints out - first part of assignment
+   	} else {
+   	console.log("No parent Found");
+   	}
+
+   }
+};
