@@ -106,3 +106,4 @@ var albumFaves = {
 
 
   };
+  }
