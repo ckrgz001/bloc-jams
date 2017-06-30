@@ -116,7 +116,7 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
         });
     }
 
-}
+
 
 /*function findParentByClassName (name){
     var parent = document.getElementsByClassName(name).parentElement.nodeName;
