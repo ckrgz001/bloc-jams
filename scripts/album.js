@@ -10,7 +10,7 @@ var createSongRow = function(songNumber, songName, songLength) {
     var $row = $(template);
 
     var clickHandler = function() {
-    
+
         var songNumber = parseInt($(this).attr('data-song-number'));
 
     if (currentlyPlayingSongNumber !== null) {
@@ -23,8 +23,7 @@ var createSongRow = function(songNumber, songName, songLength) {
     if (currentlyPlayingSongNumber !== songNumber) {
      // Switch from Play -> Pause button to indicate new song is playing.
      $(this).html(pauseButtonTemplate);
-        currentlyPlayingSongNumber = songNumber;
-        currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+        setSong(songNumber);
         updatePlayerBarSong();
     } else if (currentlyPlayingSongNumber === songNumber) {
      // Switch from Pause -> Play button to pause currently playing song.
@@ -190,3 +189,16 @@ var offHover = function(event) {
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
  });
+
+//****Assignment work 1&2****
+ var setSong = function (songNumber){
+  currentlyPlayingSongNumber = songNumber;
+  currentSongFromAlbum = currentAlbum.songs[currentlyPlayingSongNumber - 1 ];// -> because the number of songs is an array,
+  //so need array notation, right?
+ };
+
+
+//Assignment work 3
+var getSongNumberCell = function(number){
+    return $('.song-item-number')... number... // I don't know how to merge these
+};
