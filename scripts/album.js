@@ -190,15 +190,15 @@ var offHover = function(event) {
     $nextButton.click(nextSong);
  });
 
-//****Assignment work 1&2****
+//****Corrected with parseInt assignment work 1&2****
  var setSong = function (songNumber){
-  currentlyPlayingSongNumber = songNumber;
+  currentlyPlayingSongNumber = parseInt(songNumber);
   currentSongFromAlbum = currentAlbum.songs[currentlyPlayingSongNumber - 1 ];// -> because the number of songs is an array,
   //so need array notation, right?
  };
 
 
-//Assignment work 3
+//Assignment work 3/4
 var getSongNumberCell = function(number){
-    return $('.song-item-number')... number... // I don't know how to merge these
+    return $('.song-item-number[data-song-number="' + number + '"]');
 };
