@@ -18,6 +18,7 @@ var setSong = function (songNumber){
          });
          seek(currentSoundFile.getTime());
          setVolume(currentVolume);
+
 };
 
 var seek = function(time) {
@@ -87,6 +88,7 @@ var createSongRow = function(songNumber, songName, songLength) {
                     $('.main-controls .play-pause').html(playerBarPlayButton);
                     currentSoundFile.pause();
                     updateSeekBarWhileSongPlays();
+
                }
  }
 
@@ -251,6 +253,7 @@ var offHover = function(event) {
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
     setupSeekBars();
+    setTotalTimeInPlayerBar();
  });
 
  var updateSeekBarWhileSongPlays = function() {
@@ -347,4 +350,19 @@ var offHover = function(event) {
 
 var setCurrentTimeInPlayerBar = function(currentTime){
     $('.current-time').text(currentTime);
+}
+
+var setTotalTimeInPlayerBar = function (totalTime){
+$('.total-time').text(totalTime);
+}
+
+
+var filterTimeCode = function(timeInSeconds){
+    var mins = parseFloat(Math.floor(timeInSeconds/60));
+    var secs = parseFloat(Math.floor(timeInSeconds - mins * 60));
+
+    var minSec = mins + ':' + secs;
+
+    return minSec
+
 }
