@@ -1,0 +1,31 @@
+
+//Assignment #1
+var setCurrentTimeinPlayerBar = function(currentTime){
+$('.current-time').text(currentTime);
+}
+
+setCurrentTimeinPalyerBar();
+
+
+
+
+//Assignment #2
+var setTotalTimeInPlayerBar = function (totalTime){
+$('.total-time').text(totalTime);
+}
+
+
+
+
+
+
+//Assignment #3
+var filterTimeCode = function(timeInSeconds){
+    var mins = parseFloat(Math.floor(timeInSeconds/60));
+    var secs = parseFloat(Math.floor(timeInSeconds - mins * 60));
+
+    var minSec = mins + ':' + secs;
+
+    return minSec
+
+}
