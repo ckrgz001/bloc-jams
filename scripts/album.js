@@ -16,7 +16,7 @@ var setSong = function (songNumber){
              formats: [ 'mp3' ],
              preload: true
          });
-         seek(currentTime);
+         seek(currentSoundFile.getTime());
          setVolume(currentVolume);
 };
 
@@ -65,7 +65,6 @@ var createSongRow = function(songNumber, songName, songLength) {
         setSong(songNumber);
         currentSoundFile.play();
         updateSeekBarWhileSongPlays();
-        updatePlayerBarSong();
         currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 
 
@@ -76,7 +75,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
 
         $(this).html(pauseButtonTemplate);
-
+        updatePlayerBarSong();
     } else if (currentlyPlayingSongNumber === songNumber) {
         if (currentSoundFile.isPaused()) {
                     $(this).html(pauseButtonTemplate);
@@ -266,6 +265,7 @@ var offHover = function(event) {
               var $seekBar = $('.seek-control .seek-bar');
 
               updateSeekPercentage($seekBar, seekBarFillRatio);
+              setCurrentTimeInPlayerBar(this.getTime());
           });
       }
   };
@@ -335,12 +335,16 @@ var offHover = function(event) {
             }
 
              updateSeekPercentage($seekBar, seekBarFillRatio);
-         });
+        });
 
          // #10
          $(document).bind('mouseup.thumb', function() {
           $(document).unbind('mousemove.thumb');
              $(document).unbind('mouseup.thumb');
-         });
-     });
+        });
+    });
 };
+
+var setCurrentTimeInPlayerBar = function(currentTime){
+    $('.current-time').text(currentTime);
+}
