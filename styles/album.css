@@ -49,7 +49,8 @@ body.album {
  }
 
  .song-item-number {
-     width: 5%;
+     text-align: center;
+     width: 10%;
      min-width: 30px;
  }
 
@@ -79,7 +80,7 @@ body.album {
  }
 
  .album-song-button span {
-     line-height: 28px;
+     line-height: 20px;
  }
 
   /* Centered text looks better on smaller devices */

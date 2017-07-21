@@ -224,6 +224,7 @@ var offHover = function(event) {
       $('.currently-playing .artist-name').text(currentAlbum.artist);
       $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
       $('.main-controls .play-pause').html(playerBarPauseButton);
+      setTotalTimeInPlayerBar(currentSoundFile.getDuration());
   };
 
   // Album button templates
@@ -347,4 +348,19 @@ var offHover = function(event) {
 
 var setCurrentTimeInPlayerBar = function(currentTime){
     $('.current-time').text(currentTime);
+}
+
+var setTotalTimeInPlayerBar = function (totalTime){
+$('.total-time').text(totalTime);
+}
+
+
+var filterTimeCode = function(timeInSeconds){
+    var mins = parseFloat(Math.floor(timeInSeconds/60));
+    var secs = parseFloat(Math.floor(timeInSeconds - mins * 60));
+
+    var minSec = mins + ':' + secs;
+
+    return minSec;
+
 }
