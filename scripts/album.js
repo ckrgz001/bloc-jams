@@ -157,6 +157,16 @@ var offHover = function(event) {
       }
   };
 
+
+  var setCurrentTimeInPlayerBar = function(currentTime){
+  $('.current-time').text(currentTime);
+  };
+
+  var setTotalTimeInPlayerBar = function (totalTime) {
+  $('.total-time').text(totalTime);
+  }
+
+
   var trackIndex = function(album, song) {
       return album.songs.indexOf(song);
   };
@@ -225,7 +235,7 @@ var offHover = function(event) {
       $('.currently-playing .artist-name').text(currentAlbum.artist);
       $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
       $('.main-controls .play-pause').html(playerBarPauseButton);
-      setTotalTimeInPlayerBar(filterTimeCode(this.getDuration()));
+
   };
 
   // Album button templates
@@ -269,6 +279,7 @@ var offHover = function(event) {
 
               updateSeekPercentage($seekBar, seekBarFillRatio);
               setCurrentTimeInPlayerBar(filterTimeCode(this.getTime()));
+              setTotalTimeInPlayerBar(filterTimeCode(this.getDuration()));
           });
       }
   };
