@@ -35,7 +35,6 @@ var setVolume = function(volume){
 };
 
 
-
 var getSongNumberCell = function(number) {
     return $('.song-item-number[data-song-number="' + number + '"]');
 };
@@ -226,6 +225,7 @@ var offHover = function(event) {
       $('.currently-playing .artist-name').text(currentAlbum.artist);
       $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
       $('.main-controls .play-pause').html(playerBarPauseButton);
+      setTotalTimeInPlayerBar(currentSoundFile.getDuration());
   };
 
   // Album button templates
@@ -253,7 +253,7 @@ var offHover = function(event) {
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
     setupSeekBars();
-    setTotalTimeInPlayerBar();
+
  });
 
  var updateSeekBarWhileSongPlays = function() {
@@ -350,9 +350,9 @@ var offHover = function(event) {
 
 var setCurrentTimeInPlayerBar = function(currentTime){
 $('.current-time').text(currentTime);
-}
+};
 
-var setTotalTimeInPlayerBar = function (totalTime){
+var setTotalTimeInPlayerBar = function (totalTime) {
 $('.total-time').text(totalTime);
 }
 
