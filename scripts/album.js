@@ -44,7 +44,7 @@ var createSongRow = function(songNumber, songName, songLength) {
         '<tr class="album-view-song-item">'
       + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
-      + '  <td class="song-item-duration">' + songLength + '</td>'
+      + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
       + '</tr>'
       ;
 
@@ -370,9 +370,8 @@ $('.total-time').text(totalTime);
 var filterTimeCode = function(timeInSeconds){
     var mins = parseFloat(Math.floor(timeInSeconds/60));
     var secs = parseFloat(Math.floor(timeInSeconds - mins * 60));
+    var plusZero = ("0" + secs).slice(-2);
 
-    var minSec = mins + ':' + secs;
-
-    return minSec;
+    return mins + ':' + plusZero;
 
 }
