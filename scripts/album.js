@@ -134,7 +134,6 @@ var offHover = function(event) {
 //At #3, we return $row, which is created with the event listeners attached.
 
 
-
   var setCurrentAlbum = function(album) {
       currentAlbum = album;
       var $albumTitle = $('.album-view-title');
