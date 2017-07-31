@@ -236,6 +236,8 @@ var offHover = function(event) {
       $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
       $('.main-controls .play-pause').html(playerBarPauseButton);
 
+      setTotalTimeInPlayerBar(currentSoundFile.getDuration());
+
   };
 
   // Album button templates
