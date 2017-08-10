@@ -80,7 +80,12 @@ body.album {
  }
 
  .album-song-button span {
-     line-height: 20px;
+     line-height: 10px;
+ }
+
+ .ion-play {
+     margin-top: 25px;
+     padding-top: 25px;
  }
 
   /* Centered text looks better on smaller devices */
@@ -111,4 +116,8 @@ body.album {
         width: 80%;
         margin: auto;
     }
+}
+.album-song-button {
+    padding-top: 7px;
+    
 }
