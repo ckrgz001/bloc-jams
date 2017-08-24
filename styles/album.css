@@ -52,6 +52,7 @@ body.album {
      text-align: center;
      width: 10%;
      min-width: 30px;
+     text-align: center;
  }
 
  .song-item-title {
@@ -90,14 +91,9 @@ body.album {
 
   /* Centered text looks better on smaller devices */
 
-
-
-
-
-
-
-
-
+  .album-song-button {
+      padding-top: 7px;
+}
 
  @media (max-width: 640px) and (min-width: 320px) {
      .album-view-details {
